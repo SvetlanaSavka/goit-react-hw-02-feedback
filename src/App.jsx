@@ -49,9 +49,8 @@ export class App extends React.Component {
               good={good}
               neutral={neutral}
               bad={bad}
-              total={this.countTotalFeedback}
-              Positive
-              feedback={this.countPositiveFeedbackPercentage}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
             />
           </Section>
         )}
