@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Notiflix = ({ message }) => {
+const Notification = ({ message }) => {
   return (
     <>
       <p>{message}</p>
@@ -9,7 +9,7 @@ const Notiflix = ({ message }) => {
   );
 };
 
-Notiflix.propTypes = {
+Notification.propTypes = {
   message: PropTypes.string.isRequired,
 };
-export default Notiflix;
+export default Notification;

@@ -2,7 +2,7 @@ import React from 'react';
 import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 import Statistics from 'components/Statistics/Statistics';
 import Section from 'components/Section/Section';
-import Notiflix from 'components/Notiflix/Notiflix';
+import Notification from 'components/Notification/Notification';
 
 export class App extends React.Component {
   state = {
@@ -11,9 +11,9 @@ export class App extends React.Component {
     bad: 0,
   };
 
-  handleMethod = method => {
+  handleFeedback = feedbackname => {
     this.setState(prevState => ({
-      [method]: prevState[method] + 1,
+      [feedbackname]: prevState[feedbackname] + 1,
     }));
   };
 
@@ -30,7 +30,6 @@ export class App extends React.Component {
   };
 
   render() {
-    console.log(Object.keys(this.state));
     const total = this.countTotalFeedback();
     const { good, neutral, bad } = this.state;
     return (
@@ -38,11 +37,11 @@ export class App extends React.Component {
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={Object.keys(this.state)}
-            onLeaveFeedback={this.handleMethod}
+            onLeaveFeedback={this.handleFeedback}
           />
         </Section>
         {total === 0 ? (
-          <Notiflix message="There is no feedback" />
+          <Notification message="There is no feedback" />
         ) : (
           <Section title="Statistics">
             <Statistics
